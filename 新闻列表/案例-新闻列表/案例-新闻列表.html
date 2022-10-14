@@ -8,29 +8,33 @@
     <link rel="stylesheet" href="./assets/news.css" />
     <script src="./lib/jquery.js"></script>
     <script src="./lib/template-web.js"></script>
+    <script src="./js/list.js"></script>
   </head>
   <body>
 
-    <div id="news-list">
+    <div id="news-list"></div>
+    <script type="text/html" id="newlist">
+      {{each data}}
       <div class="news-item">
-        <img class="thumb" src="" alt="" />
+        <img class="thumb" src="{{'http://www.liulongbin.top:3006'+$value.img}}" alt="" />
         <div class="right-box">
-          <h1 class="title">5G商用在即，三大运营商营收持续下降</h1>
+          <h1 class="title">{{$value.title}}</h1>
           <div class="tags">
-            <span>三大运营商</span>
-            <span>中国移动</span>
-            <span>5G商用</span>
+            {{each $value.tags}}
+            <span>{{$value}}</span>
+            {{/each}}
           </div>
           <div class="footer">
             <div>
-              <span>胡润百富</span>&nbsp;&nbsp;
-              <span>2019-10-28 10:14:38</span>
+              <span>{{$value.source}}</span>&nbsp;&nbsp;
+              <span>{{$value.time | dateFormat}}</span>
             </div>
-            <span>评论数：66</span>
+            <span>评论数：{{$value.cmtcount}}</span>
           </div>
         </div>
       </div>
-    </div>
+      {{/each}}
+    </script>
 
   </body>
 </html>
