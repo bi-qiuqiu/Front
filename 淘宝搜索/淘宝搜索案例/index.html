@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/search.css" />
     <!-- 导入 jQuery -->
     <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+    <script src="./js/index.js"></script>
   </head>
   <body>
     <div class="container">
@@ -27,7 +29,14 @@
             搜索
           </button>
         </div>
+        <!-- 搜索建议列表 -->
+        <div class="suggest-list"></div>
       </div>
     </div>
+    <script type="text/html" id="tpl-suggest">
+      {{each result}}
+      <div class="suggest-item">{{$value[0]}}</div>
+      {{/each}}
+    </script>
   </body>
 </html>
