@@ -43,9 +43,10 @@ class MainItem extends Component {
       </li>
     )
   }
-  componentDidUpdate() {
+  /*   componentDidUpdate() {
     this.inputRef.current.focus()
-  }
+    这个是只要状态改变就会执行
+  } */
   delTodo(id) {
     this.props.Del(id)
   }
@@ -53,10 +54,15 @@ class MainItem extends Component {
     this.props.updateDone(id)
   }
   edit(item) {
-    this.setState({
-      currentID: item.id,
-      currentName: item.name,
-    })
+    this.setState(
+      {
+        currentID: item.id,
+        currentName: item.name,
+      },
+      () => {
+        this.inputRef.current.focus()
+      }
+    )
   }
   textedit = (e) => {
     if (e.keyCode === 27) {
