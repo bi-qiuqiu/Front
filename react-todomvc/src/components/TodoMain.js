@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import classnames from 'classnames'
+
+import MainItem from './TodoItem'
 class Main extends Component {
-  state = {
-    //当前双击id
-    currentID: '',
-    currentName: '',
-  }
   render() {
     const { list, type } = this.props
     let showList = []
@@ -28,64 +24,11 @@ class Main extends Component {
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {showList.map((item) => (
-            <li
-              className={classnames({
-                completed: item.done,
-                editing: item.id === this.state.currentID,
-              })}
-              key={item.id}
-            >
-              <div className="view">
-                <input
-                  className="toggle"
-                  type="checkbox"
-                  checked={item.done}
-                  onChange={() => this.updateDone(item.id)}
-                />
-                <label onDoubleClick={() => this.edit(item)}>{item.name}</label>
-                <button
-                  className="destroy"
-                  onClick={() => this.delTodo(item.id)}
-                ></button>
-              </div>
-              <input
-                className="edit"
-                value={this.state.currentName}
-                onChange={(e) => this.setState({ currentName: e.target.value })}
-                onKeyUp={this.textedit}
-              />
-            </li>
+            <MainItem key={item.id} item={item} {...this.props}></MainItem>
           ))}
         </ul>
       </section>
     )
-  }
-  delTodo(id) {
-    this.props.Del(id)
-  }
-  updateDone(id) {
-    this.props.updateDone(id)
-  }
-  edit(item) {
-    this.setState({
-      currentID: item.id,
-      currentName: item.name,
-    })
-  }
-  textedit = (e) => {
-    if (e.keyCode === 27) {
-      this.setState({
-        currentID: '',
-        currentName: '',
-      })
-    }
-    if (e.keyCode === 13) {
-      this.props.textedit(this.state.currentID, this.state.currentName)
-      this.setState({
-        currentID: '',
-        currentName: '',
-      })
-    }
   }
   handleChange = (e) => {
     this.props.changall(e.target.checked)

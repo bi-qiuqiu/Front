@@ -7,12 +7,13 @@ import Main from './components/TodoMain'
 import Footer from './components/TodoFooter'
 class App extends Component {
   state = {
-    list: [
-      { id: 1, name: '吃饭', done: false },
-      { id: 2, name: '睡觉', done: true },
-      { id: 3, name: '打豆豆', done: false },
-    ],
+    list: [],
     type: 'all',
+  }
+  componentDidMount(){
+    this.setState({
+      list: JSON.parse(localStorage.getItem('todos')) || [],
+    })
   }
   mainDel = (id) => {
     this.setState({
@@ -93,6 +94,9 @@ class App extends Component {
         ></Footer>
       </section>
     )
+  }
+  componentDidUpdate() {
+    localStorage.setItem('todos', JSON.stringify(this.state.list))
   }
 }
 ReactDOM.render(<App />, document.getElementById('root'))
