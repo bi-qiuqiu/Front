@@ -1,13 +1,7 @@
 <template>
   <header class="header">
     <h1>todos</h1>
-    <input
-      id="toggle-all"
-      class="toggle-all"
-      type="checkbox"
-      v-model="all"
-      @click="change"
-    />
+    <input id="toggle-all" class="toggle-all" type="checkbox" v-model="all" />
     <label for="toggle-all"></label>
     <input
       class="new-todo"
@@ -28,14 +22,16 @@ export default {
     }
   },
   computed: {
-    all:{
-        set(checked){
-            this.arr.forEach(element => {element.isDone = checked});
-        },
-        get(){
-            return this.arr.length !==0 && this.arr.every(item=>item.isDone)
-        }
-    }
+    all: {
+      set(checked) {
+        this.arr.forEach((element) => {
+          element.isDone = checked
+        })
+      },
+      get() {
+        return this.arr.length !== 0 && this.arr.every((item) => item.isDone)
+      },
+    },
   },
   methods: {
     add(e) {
@@ -44,9 +40,6 @@ export default {
       this.$emit('headerAdd', this.name)
       this.name = ''
     },
-    change(){
-        this.$emit('headerAll',this.arr)
-    }
   },
 }
 </script>

@@ -1,10 +1,6 @@
 <template>
   <div class="todoapp">
-    <TodoHeader
-      @headerAdd="add"
-      :arr="list"
-      @headerAll="allchange"
-    ></TodoHeader>
+    <TodoHeader @headerAdd="add" :arr="list"></TodoHeader>
     <TodoMain :arr="list" @mainDel="del" :type="type"></TodoMain>
     <TodoFooter
       :arr="list"
@@ -49,9 +45,6 @@ export default {
     },
     clear() {
       this.list = this.list.filter((item) => !item.isDone)
-    },
-    allchange(arr) {
-      this.list = arr
     },
   },
   watch: {
