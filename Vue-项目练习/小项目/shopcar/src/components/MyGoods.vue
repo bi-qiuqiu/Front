@@ -2,7 +2,12 @@
   <div class="my-goods-item">
     <div class="left">
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" :id="obj.id" v-model="obj.goods_state"/>
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          :id="obj.id"
+          v-model="obj.goods_state"
+        />
         <label class="custom-control-label" :for="obj.id">
           <img :src="obj.goods_img" alt="" />
         </label>
