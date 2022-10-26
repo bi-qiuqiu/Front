@@ -2,7 +2,9 @@
 
 ## Project setup
 ```
-yarn install
+yarn
+yarn add bootstrap
+yarn add less less-loader@5.0.0 -D
 ```
 
 ### Compiles and hot-reloads for development
