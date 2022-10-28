@@ -2,7 +2,9 @@
 
 ## Project setup
 ```
-yarn install
+yarn
+yarn add axios vant vue-router
+yarn add postcss postcss-pxtorem@5.1.1
 ```
 
 ### Compiles and hot-reloads for development
