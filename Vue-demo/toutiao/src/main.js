@@ -6,9 +6,35 @@ import 'amfe-flexible'
 import 'vant/lib/index.css'
 import './styles/index.less'
 
-import { NavBar, Button, Form, Field } from 'vant'
+import {
+  NavBar,
+  Button,
+  Form,
+  Field,
+  Toast,
+  CountDown,
+  Tabbar,
+  TabbarItem,
+  Image as VanImage,
+  Grid,
+  GridItem,
+  Cell,
+  CellGroup
+} from 'vant'
 
-Vue.use(NavBar).use(Button).use(Form).use(Field)
+Vue.use(NavBar)
+  .use(Button)
+  .use(Form)
+  .use(Field)
+  .use(Toast)
+  .use(CountDown)
+  .use(Tabbar)
+  .use(TabbarItem)
+  .use(VanImage)
+  .use(Grid)
+  .use(GridItem)
+  .use(Cell)
+  .use(CellGroup)
 Vue.config.productionTip = false
 
 new Vue({
