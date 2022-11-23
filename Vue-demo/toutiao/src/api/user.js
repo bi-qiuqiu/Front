@@ -9,3 +9,11 @@ export const sendSm = (params) =>
   request({
     url: `/sms/codes/${params}`
   })
+export const getUserInfo = () =>
+  request({
+    url: '/user'
+  })
+export const getUserChannels = () =>
+  request({
+    url: '/user/channels'
+  })

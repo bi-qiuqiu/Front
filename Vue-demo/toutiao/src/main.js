@@ -19,7 +19,12 @@ import {
   Grid,
   GridItem,
   Cell,
-  CellGroup
+  CellGroup,
+  Dialog,
+  Tab,
+  Tabs,
+  List,
+  PullRefresh
 } from 'vant'
 
 Vue.use(NavBar)
@@ -35,6 +40,11 @@ Vue.use(NavBar)
   .use(GridItem)
   .use(Cell)
   .use(CellGroup)
+  .use(Dialog)
+  .use(Tab)
+  .use(Tabs)
+  .use(List)
+  .use(PullRefresh)
 Vue.config.productionTip = false
 
 new Vue({
